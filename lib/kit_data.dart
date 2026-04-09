@@ -4,3 +4,4 @@ export 'core/services/internet/ck_internet_service.dart';
 // core.core.utils
 export 'core/utils/currency_formatter.dart';
 export 'core/utils/parser_utils.dart';
+export 'core/widgets/ck_elevated_button.dart';

@@ -12,14 +12,14 @@ import 'package:flutter/material.dart';
 ///   onPressed: () {},
 /// )
 /// ```
-class CKElevatedBtn extends StatelessWidget {
+class CKElevatedButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
   final Color? backgroundColor;
   final double borderRadius;
   final EdgeInsetsGeometry? padding;
 
-  const CKElevatedBtn({
+  const CKElevatedButton({
     super.key,
     required this.label,
     this.onPressed,

@@ -39,7 +39,7 @@ class CKElevatedBtn extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
-      child: Text(label),
+      child: Text(label,style: TextStyle(color: Colors.white),),
     );
   }
 }

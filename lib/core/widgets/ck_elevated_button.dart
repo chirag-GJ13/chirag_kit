@@ -2,16 +2,6 @@
 
 import 'package:flutter/material.dart';
 
-
-/// A customizable elevated button from ChiragKit.
-///
-/// Usage:
-/// ```dart
-/// CKElevatedButton(
-///   label: 'Click Me',
-///   onPressed: () {},
-/// )
-/// ```
 class CKElevatedButton extends StatelessWidget {
   final String label;
   final VoidCallback? onPressed;
@@ -39,7 +29,7 @@ class CKElevatedButton extends StatelessWidget {
           borderRadius: BorderRadius.circular(borderRadius),
         ),
       ),
-      child: Text(label,style: TextStyle(color: Colors.white),),
+      child: Text(label, style: TextStyle(color: Colors.white)),
     );
   }
 }

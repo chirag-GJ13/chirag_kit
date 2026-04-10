@@ -92,7 +92,7 @@ class CKTextField extends StatelessWidget {
             isRequired ? '$label *' : label!,
             style:
                 labelStyle ??
-                TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w500),
+                TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 1.h),
         ],

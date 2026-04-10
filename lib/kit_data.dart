@@ -24,3 +24,4 @@ export 'core/widgets/date/ck_time_field.dart';
 // ─── Widgets ───────────────────────────────────────────────
 export 'core/widgets/image/ck_cache_network_image.dart';
 export 'core/widgets/loading/ck_loading_overlay.dart';
+export 'core/widgets/textfields/ck_text_field.dart';

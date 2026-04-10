@@ -53,7 +53,7 @@ class CKTextField extends StatelessWidget {
   // ─── Default Decoration ────────────────────────────────────
   InputDecoration _defaultDecoration() => InputDecoration(
     hintText: hint,
-    hintStyle: hintStyle ?? TextStyle(fontSize: 11.sp, color: Colors.grey),
+    hintStyle: hintStyle ?? TextStyle(fontSize: 13, color: Colors.grey),
     prefixIcon: prefixIcon,
     suffixIcon: suffixIcon,
     counterText: '',
@@ -92,7 +92,7 @@ class CKTextField extends StatelessWidget {
             isRequired ? '$label *' : label!,
             style:
                 labelStyle ??
-                TextStyle(fontSize: 12, fontWeight: FontWeight.w500),
+                TextStyle(fontSize: 13, fontWeight: FontWeight.w500),
           ),
           SizedBox(height: 1.h),
         ],

@@ -3,75 +3,73 @@ import 'package:flutter/services.dart';
 import 'package:sizer/sizer.dart';
 
 class CKTextField extends StatelessWidget {
-  final TextEditingController? controller;
-  final FocusNode? focusNode;
   final String? label;
   final String? hint;
   final bool isRequired;
-  final TextInputType keyboardType;
-  final bool obscureText;
-  final int maxLines;
-  final int? maxLength;
-  final Widget? prefixIcon;
-  final Widget? suffixIcon;
+  final TextEditingController controller;
+  final FocusNode? focusNode;
   final String? Function(String?)? validator;
   final ValueChanged<String>? onChanged;
-  final VoidCallback? onTap;
-  final bool readOnly;
+  final TextInputType? keyboardType;
   final List<TextInputFormatter>? inputFormatters;
-  final AutovalidateMode autovalidateMode;
+  final bool obscureText;
+  final Widget? prefixIcon;
+  final Widget? suffixIcon;
+  final int? maxLines;
+  final int? maxLength;
+  final bool readOnly;
+  final VoidCallback? onTap;
   final InputDecoration? decoration;
-  final double borderRadius;
   final TextStyle? labelStyle;
-  final EdgeInsetsGeometry? contentPadding;
+  final TextStyle? hintStyle;
+  final double borderRadius;
+  final AutovalidateMode autovalidateMode;
 
   const CKTextField({
     super.key,
-    this.controller,
-    this.focusNode,
     this.label,
     this.hint,
+    required this.controller,
+    this.focusNode,
+    this.validator,
+    this.onChanged,
+    this.keyboardType,
+    this.inputFormatters,
+    this.prefixIcon,
+    this.suffixIcon,
     this.isRequired = false,
-    this.keyboardType = TextInputType.text,
     this.obscureText = false,
     this.maxLines = 1,
     this.maxLength,
-    this.prefixIcon,
-    this.suffixIcon,
-    this.validator,
-    this.onChanged,
-    this.onTap,
     this.readOnly = false,
-    this.inputFormatters,
-    this.autovalidateMode = AutovalidateMode.onUserInteraction,
+    this.onTap,
     this.decoration,
-    this.borderRadius = 8,
     this.labelStyle,
-    this.contentPadding,
+    this.hintStyle,
+    this.borderRadius = 10,
+    this.autovalidateMode = AutovalidateMode.onUserInteraction,
   });
 
   // ─── Default Decoration ────────────────────────────────────
   InputDecoration _defaultDecoration() => InputDecoration(
     hintText: hint,
+    hintStyle: hintStyle ?? TextStyle(fontSize: 11.sp, color: Colors.grey),
     prefixIcon: prefixIcon,
     suffixIcon: suffixIcon,
     counterText: '',
-    contentPadding:
-        contentPadding ??
-        EdgeInsets.symmetric(
-          horizontal: 4.w, // ✅ Sizer
-          vertical: 1.5.h, // ✅ Sizer
-        ),
+    errorStyle: const TextStyle(color: Colors.red),
+    contentPadding: EdgeInsets.symmetric(horizontal: 4.w, vertical: 1.5.h),
     border: OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius),
+      borderSide: BorderSide(color: Colors.grey.shade300),
     ),
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius),
-      borderSide: const BorderSide(color: Colors.grey),
+      borderSide: BorderSide(color: Colors.grey.shade300),
     ),
     focusedBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius),
-      borderSide: const BorderSide(color: Colors.black, width: 1.5),
+      borderSide: BorderSide(color: Colors.grey.shade300, width: 2),
     ),
     errorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius),
@@ -79,7 +77,7 @@ class CKTextField extends StatelessWidget {
     ),
     focusedErrorBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(borderRadius),
-      borderSide: const BorderSide(color: Colors.red, width: 1.5),
+      borderSide: const BorderSide(color: Colors.red, width: 2),
     ),
   );
 
@@ -94,33 +92,30 @@ class CKTextField extends StatelessWidget {
             isRequired ? '$label *' : label!,
             style:
                 labelStyle ??
-                TextStyle(
-                  fontSize: 11.sp, // ✅ Sizer
-                  fontWeight: FontWeight.w500,
-                ),
+                TextStyle(fontSize: 11.sp, fontWeight: FontWeight.w500),
           ),
-          SizedBox(height: 0.8.h), // ✅ Sizer
+          SizedBox(height: 1.h),
         ],
 
         // ─── Field ─────────────────────────────────────────
         TextFormField(
           controller: controller,
           focusNode: focusNode,
-          keyboardType: keyboardType,
           obscureText: obscureText,
+          keyboardType: keyboardType,
+          inputFormatters: inputFormatters,
           maxLines: maxLines,
           maxLength: maxLength,
           readOnly: readOnly,
-          inputFormatters: inputFormatters,
+          onTap: onTap,
           autovalidateMode: autovalidateMode,
+          onTapOutside: (_) => FocusScope.of(context).unfocus(),
           validator: validator,
           onChanged: onChanged,
-          onTap: onTap,
-          onTapOutside: (_) => FocusScope.of(context).unfocus(),
           decoration: decoration ?? _defaultDecoration(),
         ),
 
-        SizedBox(height: 2.h), // ✅ Sizer
+        SizedBox(height: 2.h),
       ],
     );
   }

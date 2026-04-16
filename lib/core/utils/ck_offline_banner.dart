@@ -17,12 +17,13 @@ class CKAppWrapper extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      bottom: false,
-      child: Column(
-        children: [
-          // ─── Offline Banner ────────────────────────────
-          StreamBuilder<bool>(
+    return Column(
+      children: [
+        // ─── Offline Banner ────────────────────────────
+        Container(
+          margin: EdgeInsets.only(top: 28),
+
+          child: StreamBuilder<bool>(
             stream: CKConnectivityService.instance.onConnectivityChanged,
             initialData: CKConnectivityService.instance.isConnected,
             builder: (context, snapshot) {
@@ -39,10 +40,10 @@ class CKAppWrapper extends StatelessWidget {
               );
             },
           ),
-          // ─── Main Content ──────────────────────────────
-          Expanded(child: child),
-        ],
-      ),
+        ),
+        // ─── Main Content ──────────────────────────────
+        Expanded(child: child),
+      ],
     );
   }
 }

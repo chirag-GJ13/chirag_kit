@@ -9,6 +9,7 @@ export 'core/services/navigation/ck_navigation_service.dart';
 export 'core/services/permission/ck_permission_service.dart';
 export 'core/services/snackbar/ck_snackbar_service.dart';
 export 'core/services/storage/ck_storage_service.dart';
+export 'core/utils/animated_counter.dart';
 // ─── Utils ─────────────────────────────────────────────────
 export 'core/utils/ck_offline_banner.dart';
 export 'core/utils/currency_formatter.dart';

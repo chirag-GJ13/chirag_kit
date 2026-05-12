@@ -21,6 +21,7 @@ export 'core/utils/validators.dart';
 export 'core/widgets/ImagePicker/ck_image_picker_provider.dart';
 export 'core/widgets/ImagePicker/ck_image_picker_service.dart';
 export 'core/widgets/button/ck_elevated_button.dart';
+export 'core/widgets/ck_video_player.dart';
 export 'core/widgets/common_grid_view/common_grid_view.dart';
 export 'core/widgets/common_list_view/common_list_view.dart';
 export 'core/widgets/date/ck_date_field.dart';

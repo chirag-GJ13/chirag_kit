@@ -5,7 +5,7 @@ class CKNavigationService {
 
   // ─── Navigator Key ─────────────────────────────────────────
   static final GlobalKey<NavigatorState> navigatorKey =
-  GlobalKey<NavigatorState>();
+      GlobalKey<NavigatorState>();
 
   // ─── Getter ────────────────────────────────────────────────
   static NavigatorState get _navigator => navigatorKey.currentState!;
@@ -15,16 +15,11 @@ class CKNavigationService {
   // ─── Push ──────────────────────────────────────────────────
   /// Normal push — back button se wapas aa sakte ho
   static Future<T?> push<T>({required Widget page}) {
-    return _navigator.push<T>(
-      MaterialPageRoute(builder: (_) => page),
-    );
+    return _navigator.push<T>(MaterialPageRoute(builder: (_) => page));
   }
 
   /// Named route push
-  static Future<T?> pushNamed<T>(
-      String routeName, {
-        Object? arguments,
-      }) {
+  static Future<T?> pushNamed<T>(String routeName, {Object? arguments}) {
     return _navigator.pushNamed<T>(routeName, arguments: arguments);
   }
 
@@ -37,9 +32,9 @@ class CKNavigationService {
   }
 
   static Future<T?> pushReplacementNamed<T>(
-      String routeName, {
-        Object? arguments,
-      }) {
+    String routeName, {
+    Object? arguments,
+  }) {
     return _navigator.pushReplacementNamed<T, dynamic>(
       routeName,
       arguments: arguments,
@@ -51,17 +46,17 @@ class CKNavigationService {
   static Future<T?> pushAndRemoveUntil<T>({required Widget page}) {
     return _navigator.pushAndRemoveUntil<T>(
       MaterialPageRoute(builder: (_) => page),
-          (route) => false,
+      (route) => false,
     );
   }
 
   static Future<T?> pushAndRemoveUntilNamed<T>(
-      String routeName, {
-        Object? arguments,
-      }) {
+    String routeName, {
+    Object? arguments,
+  }) {
     return _navigator.pushNamedAndRemoveUntil<T>(
       routeName,
-          (route) => false,
+      (route) => false,
       arguments: arguments,
     );
   }

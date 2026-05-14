@@ -29,12 +29,12 @@ class CKPermissionService {
   }
 
   // ─── Settings Fallback ─────────────────────────────────────
-  static Future<bool> requestWithSettingsFallback(
-      Permission permission,
-      ) async {
+  static Future<bool> requestWithSettingsFallback(Permission permission) async {
     final status = await permission.request();
     if (status.isPermanentlyDenied) {
-      debugPrint('⚠️ CKPermissionService: permanently denied → opening settings');
+      debugPrint(
+        '⚠️ CKPermissionService: permanently denied → opening settings',
+      );
       await openAppSettings();
       return false;
     }

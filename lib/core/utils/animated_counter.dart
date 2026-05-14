@@ -29,11 +29,7 @@ class AnimatedCount extends StatelessWidget {
       duration: duration,
       curve: Curves.easeOutCubic,
       builder: (context, val, _) {
-        final display = [
-          if (prefix != null) prefix!,
-          val.toInt().toString(),
-          if (suffix != null) suffix!,
-        ].join();
+        final display = [?prefix, val.toInt().toString(), ?suffix].join();
 
         return Text(
           display,

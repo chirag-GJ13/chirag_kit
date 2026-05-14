@@ -4,7 +4,7 @@ class CKSnackBarService {
   CKSnackBarService._();
 
   static final GlobalKey<ScaffoldMessengerState> scaffoldMessengerKey =
-  GlobalKey<ScaffoldMessengerState>();
+      GlobalKey<ScaffoldMessengerState>();
 
   // ─── Core Method ───────────────────────────────────────────
   static void show({
@@ -17,7 +17,9 @@ class CKSnackBarService {
     final state = scaffoldMessengerKey.currentState;
 
     if (state == null) {
-      debugPrint('⚠️ CKSnackBarService: ScaffoldMessenger not ready → msg: $message');
+      debugPrint(
+        '⚠️ CKSnackBarService: ScaffoldMessenger not ready → msg: $message',
+      );
       return;
     }
 
@@ -38,23 +40,15 @@ class CKSnackBarService {
   }
 
   // ─── Shortcuts ─────────────────────────────────────────────
-  static void success(String message) => show(
-    message: message,
-    backgroundColor: Colors.green,
-  );
+  static void success(String message) =>
+      show(message: message, backgroundColor: Colors.green);
 
-  static void error(String message) => show(
-    message: message,
-    backgroundColor: Colors.red,
-  );
+  static void error(String message) =>
+      show(message: message, backgroundColor: Colors.red);
 
-  static void warning(String message) => show(
-    message: message,
-    backgroundColor: Colors.orange,
-  );
+  static void warning(String message) =>
+      show(message: message, backgroundColor: Colors.orange);
 
-  static void info(String message) => show(
-    message: message,
-    backgroundColor: Colors.blue,
-  );
+  static void info(String message) =>
+      show(message: message, backgroundColor: Colors.blue);
 }

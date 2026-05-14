@@ -68,7 +68,7 @@ class CKNetworkImage extends StatelessWidget {
         height: height,
         width: width,
         alignment: Alignment.topCenter,
-        placeholder: (_, __) => _shimmerBox(),
+        placeholder: (_, _) => _shimmerBox(),
         errorWidget: (_, url, error) {
           debugPrint('❌ CKNetworkImage failed: $url | error: $error');
           return fallbackWidget ?? _defaultFallback;

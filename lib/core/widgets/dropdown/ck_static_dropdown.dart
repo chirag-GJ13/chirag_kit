@@ -84,7 +84,7 @@ class CKStaticDropdown<T> extends StatelessWidget {
             autovalidateMode: AutovalidateMode.onUserInteraction,
             isExpanded: true,
             isDense: true,
-            value: value,
+            initialValue: value,
             decoration: decoration ?? _defaultDecoration(),
             hint: Text(
               hint,

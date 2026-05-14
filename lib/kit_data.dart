@@ -1,4 +1,4 @@
-library flutter_core_kit;
+library;
 
 //comment
 // ─── Network ───────────────────────────────────────────────

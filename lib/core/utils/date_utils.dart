@@ -2,20 +2,17 @@ import 'package:intl/intl.dart';
 
 class DateUtils {
   /// Format DateTime → String
-  static String format(
-      DateTime? date, {
-        String pattern = 'dd MMM yyyy',
-      }) {
+  static String format(DateTime? date, {String pattern = 'dd MMM yyyy'}) {
     if (date == null) return '';
     return DateFormat(pattern).format(date);
   }
 
   /// Format from String → String
   static String formatFromString(
-      String? dateString, {
-        String inputPattern = "yyyy-MM-dd",
-        String outputPattern = "dd MMM yyyy",
-      }) {
+    String? dateString, {
+    String inputPattern = "yyyy-MM-dd",
+    String outputPattern = "dd MMM yyyy",
+  }) {
     if (dateString == null || dateString.isEmpty) return '';
 
     try {

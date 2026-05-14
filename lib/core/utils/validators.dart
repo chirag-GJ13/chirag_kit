@@ -29,8 +29,9 @@ class CKValidators {
 
   // ─── Mobile — Indian ───────────────────────────────────────
   static String? mobile(String? value) {
-    if (value == null || value.trim().isEmpty)
+    if (value == null || value.trim().isEmpty) {
       return 'Mobile number is required';
+    }
     if (!_indianPhoneRegex.hasMatch(value.trim())) {
       return 'Enter valid 10 digit mobile number';
     }

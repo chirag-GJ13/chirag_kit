@@ -27,6 +27,7 @@ class CKValidators {
     return null;
   }
 
+  //
   static String? mobile(String? value) {
     if (value == null || value.isEmpty) return 'Mobile number is required';
 

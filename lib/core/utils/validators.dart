@@ -27,12 +27,17 @@ class CKValidators {
     return null;
   }
 
-  // ─── Mobile — Indian ───────────────────────────────────────
   static String? mobile(String? value) {
-    if (value == null || value.trim().isEmpty) {
-      return 'Mobile number is required';
+    if (value == null || value.isEmpty) return 'Mobile number is required';
+
+    // Clean the string (remove spaces/+91 etc if necessary)
+    final cleanValue = value.replaceAll(RegExp(r'\D'), '');
+
+    if (cleanValue.length != 10) {
+      return 'Enter exactly 10 digits';
     }
-    if (!_indianPhoneRegex.hasMatch(value.trim())) {
+
+    if (!_indianPhoneRegex.hasMatch(cleanValue)) {
       return 'Enter valid 10 digit mobile number';
     }
     return null;
